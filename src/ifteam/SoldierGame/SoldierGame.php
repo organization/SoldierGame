@@ -46,28 +46,28 @@ class SoldierGame extends PluginBase implements Listener {
 			switch (strtolower ( $args [0] )) {
 				case "enable" :
 					$this->config_Data ["enable-soldiergame"] = 1;
-					$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 눈싸움이 활성화되었습니다." );
+					$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] The snowball fight has been activated." );
 					break;
 				case "disable" :
 					$this->config_Data ["enable-soldiergame"] = 0;
-					$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 눈싸움이 비활성화되었습니다." );
+					$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] The snowball fight has been disabled." );
 					break;
 				case "explode" :
 					if ($this->config_Data ["enable-explode"]) {
 						$this->config_Data ["enable-explode"] = 0;
-						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 폭발이 비활성화되었습니다." );
+						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] The explosion disabled." );
 					} else {
 						$this->config_Data ["enable-explode"] = 1;
-						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 폭발이 활성화되었습니다." );
+						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] Explosion has been activated." );
 					}
 					break;
 				case "broadcast" :
 					if ($this->config_Data ["enable-broadcast"]) {
 						$this->config_Data ["enable-broadcast"] = 0;
-						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 전투알림이 비활성화되었습니다." );
+						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] Combat Alert has been deactivated." );
 					} else {
 						$this->config_Data ["enable-broadcast"] = 1;
-						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] 전투알림이 활성화되었습니다." );
+						$sender->sendMessage ( TextFormat::DARK_AQUA . "[SoldierGame] Combat Alert has been activated." );
 					}
 					break;
 				default :
@@ -79,12 +79,12 @@ class SoldierGame extends PluginBase implements Listener {
 	}
 	public function onHelp(Player $sender) {
 		if ($sender->isOp ()) {
-			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame enable - 눈싸움 활성화" );
-			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame disable - 눈싸움 비활성화" );
-			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame explode - 폭발 활성|비활성화" );
-			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame broadcast - 전투알림 활성|비활성화" );
+			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame enable - activate a snowball fight" );
+			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame disable - disable a snowball fight" );
+			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame explode - Explosion active | inactive " );
+			$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame broadcast - Activate combat alert | disabled" );
 		}
-		$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame score <유저명> - 전적표시." );
+		$sender->sendMessage ( TextFormat::DARK_AQUA . "/SoldierGame score <User name> - full display. " );
 	}
 	public function checkEnableSoldierGame() {
 		return ( bool ) $this->config_Data ["enable-soldiergame"];
